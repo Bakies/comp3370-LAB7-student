@@ -17,10 +17,9 @@ public class LAB7 {
 		StringBuilder w1 = new StringBuilder(), w2 = new StringBuilder();
 		int x = text1.length() - 1, y = text2.length() - 1;
 
-		test: while (true) {
+		while (true) {
 			if (x < 0 || y < 0) {
 				// prepend rest of words
-				System.out.println("Gonna break");
 				for (; x >= 0; x--) {
 					w1.insert(0, text1.charAt(x));
 					w2.insert(0, '-');
@@ -30,7 +29,7 @@ public class LAB7 {
 					w1.insert(0, '-');
 				}
 
-				break test;
+				break;
 			}
 			if (arrows[x + 1][y + 1] == 3) {
 				w1.insert(0, text1.charAt(x));
