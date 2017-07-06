@@ -17,20 +17,7 @@ public class LAB7 {
 		StringBuilder w1 = new StringBuilder(), w2 = new StringBuilder();
 		int x = text1.length() - 1, y = text2.length() - 1;
 
-		while (true) {
-			if (x < 0 || y < 0) {
-				// prepend rest of words
-				for (; x >= 0; x--) {
-					w1.insert(0, text1.charAt(x));
-					w2.insert(0, '-');
-				}
-				for (; y >= 0; y--) {
-					w2.insert(0, text2.charAt(y));
-					w1.insert(0, '-');
-				}
-
-				break;
-			}
+		while (x >= 0 && y >= 0) {
 			if (arrows[x + 1][y + 1] == 3) {
 				w1.insert(0, text1.charAt(x));
 				x--;
@@ -47,6 +34,14 @@ public class LAB7 {
 			}
 		}
 
+		for (; x >= 0; x--) {
+			w1.insert(0, text1.charAt(x));
+			w2.insert(0, '-');
+		}
+		for (; y >= 0; y--) {
+			w2.insert(0, text2.charAt(y));
+			w1.insert(0, '-');
+		}
 		return new String[] { w1.toString(), w2.toString() };
 
 	}
